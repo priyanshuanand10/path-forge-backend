@@ -1,5 +1,7 @@
-package com.pathforge.backend;
+package com.pathforge.backend.service;
 
+import com.pathforge.backend.entity.JobRole;
+import com.pathforge.backend.repository.JobRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
