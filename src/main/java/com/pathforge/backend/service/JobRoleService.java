@@ -16,8 +16,8 @@ public class JobRoleService {
         return repository.findAll();
     }
 
-    public JobRole save(JobRole jobRole) {
-        return repository.save(jobRole);
+    public List<JobRole> save(List<JobRole> jobRole) {
+        return repository.saveAll(jobRole);
     }
 
     public JobRole findById(String id) {

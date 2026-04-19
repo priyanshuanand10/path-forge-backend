@@ -1,5 +1,6 @@
 package com.pathforge.backend.controller;
 
+import com.pathforge.backend.entity.Response;
 import com.pathforge.backend.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,15 +15,16 @@ public class UploadController {
     private UploadService uploadService;
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadResume(
+    public ResponseEntity<Response> uploadResume(
             @RequestParam("resume") MultipartFile resume,
             @RequestParam("role") String role,
             @RequestParam("days") String days) {
         try {
-            uploadService.processPdf(resume, role, days);
-            return ResponseEntity.ok("PDF processed successfully");
+            Response response = uploadService.processPdf(resume, role, days);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error processing PDF: " + e.getMessage());
+//            throw  ResponseEntity.badRequest().body("Error processing PDF: " + e.getMessage());
+            throw new  RuntimeException(e);
         }
     }
 }

@@ -24,15 +24,15 @@ public class JobRoleController {
     }
 
     @PostMapping
-    public JobRole create(@RequestBody JobRole jobRole) {
+    public List<JobRole> create(@RequestBody List<JobRole> jobRole) {
         return service.save(jobRole);
     }
 
-    @PutMapping("/{id}")
-    public JobRole update(@PathVariable String id, @RequestBody JobRole jobRole) {
-        jobRole.setId(id);
-        return service.save(jobRole);
-    }
+//    @PutMapping("/{id}")
+//    public JobRole update(@PathVariable String id, @RequestBody JobRole jobRole) {
+//        jobRole.setId(id);
+//        return service.save(jobRole);
+//    }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
