@@ -31,7 +31,7 @@ public class UploadService {
             System.out.println(text);
         }
 
-        return chatService.getChatResponseV2(text);
+        return chatService.getChatResponseV2(text , role , days);
 
 
     }

@@ -12,7 +12,8 @@ public class CrosConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:5173")
+                // use origin patterns to allow dynamic dev tunnel hostnames (wildcard) and localhost
+                .allowedOriginPatterns("http://localhost:5173", "https://*.devtunnels.ms")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true)
